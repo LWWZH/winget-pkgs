@@ -1,0 +1,33 @@
+# Created with komac v2.16.0
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.12.0.schema.json
+
+PackageIdentifier: 0xShug0.audiocpp
+PackageVersion: 0.9.1
+InstallerType: zip
+NestedInstallerType: portable
+UpgradeBehavior: uninstallPrevious
+Installers:
+- Architecture: x64
+  NestedInstallerFiles:
+  - RelativeFilePath: audiocpp_cli.exe
+    PortableCommandAlias: audiocpp-cli
+  - RelativeFilePath: audiocpp_gguf.exe
+    PortableCommandAlias: audiocpp_gguf
+  - RelativeFilePath: audiocpp_server.exe
+    PortableCommandAlias: audiocpp_server
+  InstallerUrl: https://github.com/0xShug0/audio.cpp/releases/download/v0.9.1/audio-v0.9.1-bin-windows-x64-vulkan-portable.zip
+  InstallerSha256: 423226FA8A0FD09DE8534A6BC146EA8758801C8937E406DAFA6BFFB6BFB22F73
+  ReleaseDate: 2026-10-08
+- Architecture: x64
+  NestedInstallerFiles:
+  - RelativeFilePath: audiocpp_cli.exe
+    PortableCommandAlias: audiocpp-cli
+  - RelativeFilePath: audiocpp_gguf.exe
+    PortableCommandAlias: audiocpp_server
+  - RelativeFilePath: audiocpp_server.exe
+    PortableCommandAlias: audiocpp_gguf
+  InstallerUrl: https://github.com/0xShug0/audio.cpp/releases/download/v0.9.1/audio-v0.9.1-bin-windows-x64-vulkan.zip
+  InstallerSha256: 3425C4E60F36C16D50B5418E37B8A5F2811741237A8575AE645C119FBCEEADD4
+  ReleaseDate: 2026-10-07
+ManifestType: installer
+ManifestVersion: 1.12.0

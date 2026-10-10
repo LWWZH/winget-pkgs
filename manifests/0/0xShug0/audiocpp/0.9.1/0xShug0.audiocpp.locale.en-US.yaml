@@ -1,0 +1,110 @@
+# Created with komac v2.16.0
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.12.0.schema.json
+
+PackageIdentifier: 0xShug0.audiocpp
+PackageVersion: 0.9.1
+PackageLocale: en-US
+Publisher: ShugoAI LLC
+PublisherUrl: https://github.com/0xShug0
+PublisherSupportUrl: https://github.com/0xShug0/audio.cpp/issues
+Author: 0xShug0
+PackageName: audio.cpp
+PackageUrl: https://github.com/0xShug0/audio.cpp
+License: Apache 2.0 License
+LicenseUrl: https://github.com/0xShug0/audio.cpp/blob/HEAD/LICENSE
+Copyright: Copyright 2026 ShugoAI LLC
+CopyrightUrl: https://github.com/0xShug0/audio.cpp/blob/HEAD/LICENSE
+ShortDescription: An all-in-one, pure C++ inference engine for audio models, powered by ggml. Supports TTS, STT, VAD, voice conversion, music generation, and more, with highly optimized performance. No Python dependency.
+Description: audio.cpp is a high-performance C++ audio inference framework built on top of ggml, designed to make modern local audio models practical, portable, and fast.
+Tags:
+- ai
+- amd-gpu
+- apple-silicon
+- asr
+- audio
+- cpp
+- edge-ai
+- ggml
+- minimax-music3
+- music-generation
+- speech-analysis
+- speech-to-speech
+- speech-to-text
+- text-to-speech
+- tts
+- vulkan
+ReleaseNotes: |-
+  Recent release builds tend to target AVX-512 due to automatic CPU detection on GitHub runners. If you run into crashes, please use the portable version for broader CPU compatibility.
+  What's Changed
+  - Add opt-in SSM and projection support for CUDA and Vulkan by @0xShug0 in #713
+  - Add RE-USE audio restoration and native task batching by @0xShug0 in #714
+  - fix(reuse): disable HIP and Metal backends by @0xShug0 in #741
+  - Add Sidon speech restoration model by @0xShug0 in #742
+  - Add Smart Turn v3.2 offline turn detection by @0xShug0 in #743
+  - Add KugelAudio native TTS with batched CFG and streaming by @0xShug0 in #744
+  - fix(server): support inline Base64 audio in task requests by @0xShug0 in #750
+  - Restore executable bit on release tarball binaries by @scriptease in #754
+  - fix(model-manager): reduce inventory DNS lookups by @0xShug0 in #752
+  - Add Index-Echo S2TT translation models by @0xShug0 in #755
+  - fix(safetensors): bound nesting depth when skipping metadata by @Zhuoxi2000 in #753
+  - fix(torch_bin): honour _rebuild_tensor_v2 storage_offset and reject non-contiguous tensors by @Zhuoxi2000 in #757
+  - feat: add lfm2_audio ASR for LFM2.5-Audio EN and JP by @ykhrustalev in #758
+  - Add CrisperWhisper 2.0 with long-form transcription and alignment by @0xShug0 in #759
+  - Add Audio Flamingo 3 and Next support by @0xShug0 in #763
+  - Lower YuE2 context defaults by @0xShug0 in #767
+  - fix(lfm2_audio): end a transcript cut at max_tokens at the last whole character by @ykhrustalev in #765
+  - perf(lfm2_audio): keep the encoder graph and its compute buffer between chunks by @ykhrustalev in #766
+  - docs(r2t2): note that the final word needs trailing silence by @scriptease in #770
+  - Use UTF-8 process code pages for Windows executables by @0xShug0 in #772
+  - Add OWSM v4 and OWSM-CTC v4 by @0xShug0 in #774
+  - server: separate legacy and experimental parallel jobs runtimes by @mirek190 in #715
+  - Fix Chatterbox S3 encoder relative shift and LayerNorm epsilon by @dignome in #778
+  - Add Kittentts2 community model by @dignome in #776
+  - Fix WebUI Run for bundled VAD models by @mister2d in #782
+  - Fix Kitten TTS 2 reported wall_ms and clean up model implementation by @dignome in #781
+  - Egyptian arabic voicetut qwencleo by @MohammedAly22 in #780
+  - feat: add lfm2_audio TTS for LFM2.5-Audio EN and JP by @ykhrustalev in #768
+  - Align UI catalog model paths with spec packages by @0xShug0 in #783
+  - Add tts-audiobook-tool to projects listing in README.md by @zeropointnine in #788
+  - Reduce HTDemucs inference overhead across backends by @0xShug0 in #790
+  - Document OmniVoice and Qwen3 options with compatible normalized names by @0xShug0 in #786
+  - server: add include_params to GET /v1/models, read from the model spec by @Navier8 in #787
+  - Fix repeated Voxtral Realtime transcriptions by @dignome in #793
+  - Enhance CUDA 12 library handling in Colab notebook by @ha466 in #795
+  - fix: allow --out to target FIFOs and char devices (e.g. /dev/stdout) by @trappedinspacetime in #796
+  - feat: add lfm2_audio speech-to-speech for LFM2.5-Audio EN and JP by @ykhrustalev in #798
+  - docs: add ComeCut to the Projects list by @juntaosun in #804
+  - Use depthwise upsampling for PocketTTS on CPU by @0xShug0 in #806
+  - feat: return_text on /v1/audio/speech/live by @ykhrustalev in #805
+  - 🚨 Accept neutral speed in OpenAI speech requests by @0xShug0 in #807
+  - Add BreezeTTS2 Q4 package and PocketTTS voice export docs by @0xShug0 in #808
+  - Fix ZipEnhancer corrupted enhancement output by @0xShug0 in #811
+  - Document core model options with compatible normalized names by @0xShug0 in #814
+  - Fix Stable Audio short-input encoder stitching by @0xShug0 in #815
+  - refactor(lfm2_audio): choose the decode-cache size by task by @ykhrustalev in #813
+  - docs(reports): add YuE2 longform host commit exhaustion report by @wangguanghua2099 in #816
+  - Sopro v2.2.0 parity, real (chunked) streaming, and opt-in voice cache by @samuel-vitorino in #818
+  - Relax Niagara ASR and AuK backend restrictions by @0xShug0 in #817
+  - fix(lfm2_audio): refuse audio too long for one encoder pass, and name missing package files by @ykhrustalev in #820
+  - Reduce Qwen3-TTS, IndexTTS, and BreezeTTS memory allocations by @0xShug0 in #821
+  - server: optional input on /v1/audio/speech/live for s2s and vc models by @ykhrustalev in #822
+  - feat(lfm2_audio): text_temperature and text_top_k for S2S by @ykhrustalev in #827
+  - v0.9.1 WebUI Model Pass by @0xShug0 in #819
+  - fix(webui): no text box for lfm2_audio speech-to-speech by @ykhrustalev in #828
+  New Contributors
+  - @Zhuoxi2000 made their first contribution in #753
+  - @ykhrustalev made their first contribution in #758
+  - @dignome made their first contribution in #778
+  - @mister2d made their first contribution in #782
+  - @MohammedAly22 made their first contribution in #780
+  - @zeropointnine made their first contribution in #788
+  - @Navier8 made their first contribution in #787
+  - @ha466 made their first contribution in #795
+  - @trappedinspacetime made their first contribution in #796
+  - @juntaosun made their first contribution in #804
+  - @wangguanghua2099 made their first contribution in #816
+  - @samuel-vitorino made their first contribution in #818
+  Full Changelog: v0.9.0...v0.9.1
+ReleaseNotesUrl: https://github.com/0xShug0/audio.cpp/releases/tag/v0.9.1
+ManifestType: defaultLocale
+ManifestVersion: 1.12.0
